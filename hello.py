@@ -1,5 +1,6 @@
 from distutils.cmd import Command
 from itertools import tee
+from logging.handlers import RotatingFileHandler
 import tkinter
 
 
@@ -7,7 +8,7 @@ count = 0
 check_picture_existeance = False
 # id_id
 
-def move():
+def move(): 
     pass
 
 class graphic():
@@ -53,8 +54,32 @@ class graphic():
         self.hello.delete(id_id)
         pass
 
+def showcount(number):
+    labeltest = tkinter.Label(text=number)
+    labeltest.place(x=300,y=300)
+    root.after(1000)
+    pass
+
+def loop():
+    number = 0
+    for i in range(10):
+        # root.after(1000,showcount(number))
+        number = 1 + number
+        showcount(number)
+
+def wait():
+    lafdslk = tkinter.Label(text="tets")
+    # lafdslk.after(10000)
+    lafdslk.place(x=500,y=500)
+
+
+
+
+
+
+
 root = tkinter.Tk()
-root.geometry("500x500")
+root.geometry("1000x1000")
 root.title("Test window")
 
 testclass = graphic()
@@ -77,6 +102,13 @@ button1 = tkinter.Button(root,text="force update move function",command=lambda:[
 button1.bind("<ButtonPress>")
 button1.place(x=300,y=200)
 
+buttonla = tkinter.Button(root,text="carry out loop function",command=lambda:loop())
+buttonla.bind("<ButtonPress>")
+buttonla.place(x=400,y=400)
 
+root.after(10000,wait)
+
+
+# loop(root)
 
 root.mainloop()
