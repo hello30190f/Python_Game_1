@@ -15,9 +15,6 @@ def move():
 class graphic():
 
     def __init__(self) -> None:
-        self.picture = tkinter.Canvas(root, width=100,height=100)
-        self.picture.create_rectangle(0,0,100,100,fill="green")
-        self.picture.place(x=0,y=0)
         pass
 
     def checkupdate(self,event):
@@ -33,6 +30,11 @@ class graphic():
         self.label1 = tkinter.Label(text=count)
         self.label1.place(x=100,y=100)
         pass
+
+    def draw(self,move):
+        self.picture = tkinter.Canvas(root, width=100,height=100)
+        self.picture.create_rectangle(0,0,100,100,fill="green")
+        self.picture.place(x=move,y=0)
 
 
     def movepicture(self):
@@ -70,6 +72,7 @@ def loop():
 
 
 
+
 def wait():
     # global check_picture_existeance
     global sydw
@@ -79,11 +82,16 @@ def wait():
     #     pass
     
     # check_picture_existeance = True
-    sydw = sydw + 1
+    sydw = sydw + 3
     lafdslk = tkinter.Label(text=sydw)
     # lafdslk.after(10000)
     lafdslk.place(x=500,y=500)
+    draw = graphic()
+    draw.draw(sydw)
     root.after(100,wait)
+
+
+
 
 
 
@@ -121,7 +129,7 @@ buttonla.place(x=400,y=400)
 
 
 sydw = 0
-root.after(10000,wait)
+root.after(1000,wait)
 
 
 # loop(root)
