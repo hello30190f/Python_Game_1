@@ -1,6 +1,7 @@
 from distutils.cmd import Command
 from itertools import tee
 from logging.handlers import RotatingFileHandler
+from math import fabs
 import tkinter
 
 
@@ -67,10 +68,22 @@ def loop():
         number = 1 + number
         showcount(number)
 
+
+
 def wait():
-    lafdslk = tkinter.Label(text="tets")
+    # global check_picture_existeance
+    global sydw
+    # if(check_picture_existeance == False):
+    #     sydw = 0
+    # else:
+    #     pass
+    
+    # check_picture_existeance = True
+    sydw = sydw + 1
+    lafdslk = tkinter.Label(text=sydw)
     # lafdslk.after(10000)
     lafdslk.place(x=500,y=500)
+    root.after(100,wait)
 
 
 
@@ -106,9 +119,15 @@ buttonla = tkinter.Button(root,text="carry out loop function",command=lambda:loo
 buttonla.bind("<ButtonPress>")
 buttonla.place(x=400,y=400)
 
+
+sydw = 0
 root.after(10000,wait)
 
 
 # loop(root)
 
 root.mainloop()
+
+
+# Tips to move as spending time.
+# https://www.school.ctc-g.co.jp/columns/hishinuma/hishinuma28.html
